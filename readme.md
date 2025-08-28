@@ -36,8 +36,6 @@ It uses Python with:
 ### 📸 ROC curve
 ![ROC curve](output4.png)
 
-### 📸 App Screenshot  
-![Rainfall Prediction App](C:\RANDOM FOREST-nAVIE BAYES\Screenshot 2025-08-28 223826.png)
 
 ---
 
