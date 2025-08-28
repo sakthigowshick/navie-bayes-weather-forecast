@@ -1,46 +1,70 @@
 # 🌦️ Weather Forecast Prediction
 
-## 📌 Overview
-This project uses **Naïve Bayes Classification** to predict whether it will **rain tomorrow** based on weather features such as **humidity, temperature, wind speed, and pressure**.  
-The model applies **Gaussian Naïve Bayes** since the features are continuous values.  
+📌 **Overview**  
+This project uses **Naïve Bayes Classification** to predict whether it will rain tomorrow based on weather features such as humidity, temperature, wind speed, and pressure.  
+The model applies **Gaussian Naïve Bayes** since the features are continuous values.
 
-It uses **Python** with:
+It uses Python with:
+
 - **Pandas** → data handling  
 - **Matplotlib / Seaborn** → visualization  
 - **Scikit-learn** → model building and evaluation  
 
 ---
 
-## 🚀 Usage
+## 🚀 Usage  
+
 1. Open the `weather.ipynb` notebook in Jupyter Notebook or JupyterLab.  
-2. Run the cells step by step to:
+2. Run the cells step by step to:  
    - Load and explore the weather dataset  
    - Perform Exploratory Data Analysis (EDA)  
-   - Train a **Naïve Bayes classifier**  
+   - Train a Naïve Bayes classifier  
    - Evaluate accuracy and make predictions  
 
----
+👉 You can also try the **Streamlit App** here:  
+🔗 [Rainfall Prediction App](http://localhost:8501/)  
 
-## 📊 Results
-Here are some insights from the analysis:
+### 📸 Feature Distribution
+![Feature Distributions](output1.png)
 
-### 🌡️ Feature Distributions
-- Histograms showing the spread of **humidity, temperature, wind_speed, and pressure**  
+### 📸 Correlation Matrix
+![Correlation Matrix](output2.png)
 
-### 🤖 Model Accuracy
-- The Naïve Bayes model was trained and tested on the dataset using an 70-30 split  
-- The model achieved an **accuracy score** (value will appear in notebook output)  
+### 📸 Confusion Matix
+![Confusion Matix](output3.png)
 
-### 🌦️ Prediction Example
-For input conditions:  
-- **humidity = 75**  
-- **temperature = 28**  
-- **wind_speed = 12**  
-- **pressure = 1010**  
+### 📸 ROC curve
+![ROC curve](output4.png)
 
-👉 The model predicts whether it will **rain tomorrow** (`0 = No`, `1 = Yes`)  
+### 📸 App Screenshot  
+![Rainfall Prediction App](fb8385aa-51a9-4ff7-bf5f-315ea377c2d9.png)
 
 ---
+
+## 📊 Results  
+
+### 🌡️ Feature Distributions  
+Visualized in a **2x2 grid (center aligned)** for better clarity:
+
+- Humidity (%)  
+- Temperature (°C)  
+- Wind Speed (km/h)  
+- Pressure (hPa)  
+
+```python
+import matplotlib.pyplot as plt
+
+features = ['humidity', 'temperature', 'wind_speed', 'pressure']
+
+plt.figure(figsize=(10, 8))
+
+for i, feature in enumerate(features, 1):
+    plt.subplot(2, 2, i)
+    df[feature].hist(bins=30, edgecolor='black')
+    plt.title(f'{feature.capitalize()} Distribution')
+
+plt.tight_layout()
+plt.show()
 
 ## ✅ Conclusion
 - **Humidity** and **pressure** were found to be the most influential features in predicting rainfall.  
